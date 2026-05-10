@@ -50,3 +50,23 @@ class Biblioteca:
             
         self.tamanho += 1
         return nova_musica
+
+    def buscar(self, termo):
+        atual = self.head
+        eh_id = False
+        termo_id = -1
+        
+        try:
+            termo_id = int(termo)
+            eh_id = True
+        except ValueError:
+            pass
+
+        while atual is not None:
+            if eh_id and atual.musica.id == termo_id:
+                return atual.musica
+            elif not eh_id and atual.musica.titulo.lower() == termo.lower():
+                return atual.musica
+            atual = atual.proximo
+            
+        return None
