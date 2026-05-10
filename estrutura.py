@@ -115,3 +115,16 @@ class Fila:
             self.tail.proximo = novo_nodo
             self.tail = novo_nodo
         self.tamanho += 1
+    
+    def dequeue(self):
+        if self.head is None:
+            return None
+        
+        musica_removida = self.head.musica
+        self.head = self.head.proximo
+        
+        if self.head is None:
+            self.tail = None
+            
+        self.tamanho -= 1
+        return musica_removida
