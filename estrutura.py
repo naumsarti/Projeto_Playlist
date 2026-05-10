@@ -99,3 +99,19 @@ class Biblioteca:
             m = atual.musica
             print(f"ID: {m.id} | {m.titulo} - {m.artista} | Gênero: {m.genero} | BPM: {m.bpm}")
             atual = atual.proximo
+
+class Fila:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.tamanho = 0
+
+    def enqueue(self, musica):
+        novo_nodo = NodoFila(musica)
+        if self.tail is None:
+            self.head = novo_nodo
+            self.tail = novo_nodo
+        else:
+            self.tail.proximo = novo_nodo
+            self.tail = novo_nodo
+        self.tamanho += 1
