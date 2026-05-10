@@ -70,3 +70,15 @@ class Biblioteca:
             atual = atual.proximo
             
         return None
+
+    def listar_completa(self):
+        atual = self.head
+        if atual is None:
+            print("A biblioteca está vazia.")
+            return
+
+        print("--- Biblioteca Completa ---")
+        while atual is not None:
+            m = atual.musica
+            print(f"ID: {m.id} | {m.titulo} - {m.artista} | Gênero: {m.genero} | BPM: {m.bpm}")
+            atual = atual.proximo
