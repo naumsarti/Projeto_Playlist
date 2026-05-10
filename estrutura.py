@@ -17,3 +17,8 @@ class Musica:
         self.genero = genero
         self.bpm = bpm
 
+class Biblioteca:
+    def __init__(self):
+        self.head = None
+        self._proximo_id = 1
+        self.tamanho = 0
