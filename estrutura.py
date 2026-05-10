@@ -128,3 +128,22 @@ class Fila:
             
         self.tamanho -= 1
         return musica_removida
+
+    def limpar(self):
+        self.head = None
+        self.tail = None
+        self.tamanho = 0
+
+    def is_empty(self):
+        return self.head is None
+
+    def exibir(self):
+        atual = self.head
+        if atual is None:
+            print("Fila vazia.")
+            return
+            
+        while atual is not None:
+            m = atual.musica
+            print(f"ID: {m.id} | {m.titulo} - {m.artista} ({m.bpm} BPM)")
+            atual = atual.proximo
