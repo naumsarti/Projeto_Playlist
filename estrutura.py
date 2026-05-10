@@ -51,6 +51,23 @@ class Biblioteca:
         self.tamanho += 1
         return nova_musica
 
+    def remover(self, id_musica):
+        atual = self.head
+        anterior = None
+
+        while atual is not None:
+            if atual.musica.id == id_musica:
+                if anterior is None:
+                    self.head = atual.proximo
+                else:
+                    anterior.proximo = atual.proximo
+                self.tamanho -= 1
+                return True
+            anterior = atual
+            atual = atual.proximo
+            
+        return False
+
     def buscar(self, termo):
         atual = self.head
         eh_id = False
