@@ -106,6 +106,30 @@ def main():
             else:
                 print("Filas montadas com sucesso baseadas na biblioteca atual!")
 
+        elif opcao == "6":
+            print("\n-- Reproduzir Próxima --")
+            print("Humores: 1-Relaxar | 2-Focar | 3-Animar | 4-Treinar")
+            humor = input("Escolha o humor da fila: ")
+            
+            musica_tocada = None
+            if humor == "1":
+                musica_tocada = fila_relaxar.dequeue()
+            elif humor == "2":
+                musica_tocada = fila_focar.dequeue()
+            elif humor == "3":
+                musica_tocada = fila_animar.dequeue()
+            elif humor == "4":
+                musica_tocada = fila_treinar.dequeue()
+            else:
+                print("Opção de humor inválida.")
+                continue
+
+            if musica_tocada is None:
+                print("Erro: A fila escolhida está vazia. (Dica: Use a opção 5 para montar as filas).")
+            else:
+                print(f"▶ Reproduzindo agora: {musica_tocada.titulo} - {musica_tocada.artista} ({musica_tocada.bpm} BPM)")
+                fila_historico.enqueue(musica_tocada)
+
         elif opcao == "10":
             print("Encerrando o Sistema de Playlist. Até logo!")
             break
