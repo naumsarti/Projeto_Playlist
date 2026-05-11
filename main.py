@@ -51,3 +51,17 @@ def main():
                 print(f"Erro: A música '{titulo}' de '{artista}' já existe na biblioteca.")
             else:
                 print(f"Música '{nova.titulo}' adicionada com sucesso! (ID: {nova.id})")
+
+        elif opcao == "2":
+            print("\n-- Remover Música --")
+            try:
+                id_remover = int(input("Informe o ID da música a ser removida: "))
+                if biblioteca.remover(id_remover):
+                    print("Música removida com sucesso!")
+                else:
+                    print("Erro: ID inexistente na biblioteca.")
+            except ValueError:
+                print("Erro: O ID deve ser um número.")
+
+if __name__ == "__main__":
+    main()
