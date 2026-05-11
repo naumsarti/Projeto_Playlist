@@ -24,7 +24,7 @@ def main():
 
     while True:
         print("\n" + "="*30)
-        print("🎶 SISTEMA DE PLAYLIST 🎶")
+        print("   SISTEMA DE PLAYLIST")
         print("1. Adicionar música à biblioteca")
         print("2. Remover música da biblioteca")
         print("3. Buscar música")
@@ -76,6 +76,35 @@ def main():
         elif opcao == "4":
             print("\n")
             biblioteca.listar_completa()
+
+        elif opcao == "5":
+            print("\n-- Montando Filas de Reprodução --")
+            fila_relaxar.limpar()
+            fila_focar.limpar()
+            fila_animar.limpar()
+            fila_treinar.limpar()
+
+            atual = biblioteca.head
+            musicas_enfileiradas = 0
+
+            while atual is not None:
+                m = atual.musica
+                if m.bpm <= 80:
+                    fila_relaxar.enqueue(m)
+                elif 81 <= m.bpm <= 120:
+                    fila_focar.enqueue(m)
+                elif 121 <= m.bpm <= 160:
+                    fila_animar.enqueue(m)
+                else:
+                    fila_treinar.enqueue(m)
+                    
+                atual = atual.proximo
+                musicas_enfileiradas += 1
+
+            if musicas_enfileiradas == 0:
+                print("A biblioteca está vazia. Nenhuma fila foi montada.")
+            else:
+                print("Filas montadas com sucesso baseadas na biblioteca atual!")
 
         elif opcao == "10":
             print("Encerrando o Sistema de Playlist. Até logo!")
