@@ -73,6 +73,10 @@ def main():
             else:
                 print("Música não encontrada.")
 
+        elif opcao == "4":
+            print("\n")
+            biblioteca.listar_completa()
+
         elif opcao == "10":
             print("Encerrando o Sistema de Playlist. Até logo!")
             break
