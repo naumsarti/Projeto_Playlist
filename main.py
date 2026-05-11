@@ -63,12 +63,21 @@ def main():
             except ValueError:
                 print("Erro: O ID deve ser um número.")
 
+        elif opcao == "3":
+            print("\n-- Buscar Música --")
+            termo = input("Informe o ID ou Título da música: ")
+            musica = biblioteca.buscar(termo)
+            if musica:
+                print("\nMúsica Encontrada:")
+                print(f"ID: {musica.id} | {musica.titulo} - {musica.artista} | Gênero: {musica.genero} | BPM: {musica.bpm}")
+            else:
+                print("Música não encontrada.")
+
         elif opcao == "10":
             print("Encerrando o Sistema de Playlist. Até logo!")
             break
         else:
             print("Opção inválida. Tente novamente.")
-
 
 if __name__ == "__main__":
     main()
