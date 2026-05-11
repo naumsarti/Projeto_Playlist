@@ -63,5 +63,12 @@ def main():
             except ValueError:
                 print("Erro: O ID deve ser um número.")
 
+        elif opcao == "10":
+            print("Encerrando o Sistema de Playlist. Até logo!")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+
 if __name__ == "__main__":
     main()
