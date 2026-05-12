@@ -151,6 +151,15 @@ def main():
             print("\n-- Histórico de Reproduções --")
             fila_historico.exibir()
 
+        elif opcao == "9":
+            print("\n-- Estatísticas do Sistema --")
+            print(f"Total de músicas na biblioteca: {biblioteca.tamanho}")
+            print(f"Fila Relaxar (até 80 BPM): {fila_relaxar.tamanho} músicas")
+            print(f"Fila Focar (81 a 120 BPM): {fila_focar.tamanho} músicas")
+            print(f"Fila Animar (121 a 160 BPM): {fila_animar.tamanho} músicas")
+            print(f"Fila Treinar (acima de 160 BPM): {fila_treinar.tamanho} músicas")
+            print(f"Total de músicas já reproduzidas (Histórico): {fila_historico.tamanho}")
+
         elif opcao == "10":
             print("Encerrando o Sistema de Playlist. Até logo!")
             break
