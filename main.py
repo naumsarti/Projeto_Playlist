@@ -130,6 +130,23 @@ def main():
                 print(f"▶ Reproduzindo agora: {musica_tocada.titulo} - {musica_tocada.artista} ({musica_tocada.bpm} BPM)")
                 fila_historico.enqueue(musica_tocada)
 
+        elif opcao == "7":
+            print("\n-- Exibir Fila de Humor --")
+            print("Humores: 1-Relaxar | 2-Focar | 3-Animar | 4-Treinar")
+            humor = input("Escolha o humor da fila: ")
+            
+            print("\n--- Fila Atual ---")
+            if humor == "1":
+                fila_relaxar.exibir()
+            elif humor == "2":
+                fila_focar.exibir()
+            elif humor == "3":
+                fila_animar.exibir()
+            elif humor == "4":
+                fila_treinar.exibir()
+            else:
+                print("Opção inválida.")
+
         elif opcao == "10":
             print("Encerrando o Sistema de Playlist. Até logo!")
             break
