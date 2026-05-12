@@ -147,6 +147,10 @@ def main():
             else:
                 print("Opção inválida.")
 
+        elif opcao == "8":
+            print("\n-- Histórico de Reproduções --")
+            fila_historico.exibir()
+
         elif opcao == "10":
             print("Encerrando o Sistema de Playlist. Até logo!")
             break
