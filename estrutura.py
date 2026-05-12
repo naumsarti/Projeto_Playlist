@@ -68,24 +68,20 @@ class Biblioteca:
             
         return False
 
-    def buscar(self, termo):
+    def buscar_id(self, id_musica):
         atual = self.head
-        eh_id = False
-        termo_id = -1
-        
-        try:
-            termo_id = int(termo)
-            eh_id = True
-        except ValueError:
-            pass
-
         while atual is not None:
-            if eh_id and atual.musica.id == termo_id:
-                return atual.musica
-            elif not eh_id and atual.musica.titulo.lower() == termo.lower():
+            if atual.musica.id == id_musica:
                 return atual.musica
             atual = atual.proximo
-            
+        return None
+    
+    def buscar_titulo(self, titulo):
+        atual = self.head
+        while atual is not None:
+            if atual.musica.titulo.lower() == titulo.lower():
+                return atual.musica
+            atual = atual.proximo
         return None
 
     def listar_completa(self):
