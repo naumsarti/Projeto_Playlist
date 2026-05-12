@@ -65,8 +65,23 @@ def main():
 
         elif opcao == "3":
             print("\n-- Buscar Música --")
-            termo = input("Informe o ID ou Título da música: ")
-            musica = biblioteca.buscar(termo)
+            print("Buscar por: 1-ID | 2-Título")
+            tipo = input("Escolha: ")
+
+            if tipo == "1":
+                try:
+                    termo_id = int(input("Informe o ID: "))
+                    musica = biblioteca.buscar_id(termo_id)
+                except ValueError:
+                    print("Erro: ID deve ser um número.")
+                    continue
+            elif tipo == "2":
+                titulo = input("Informe o Título: ")
+                musica = biblioteca.buscar_titulo(titulo)
+            else:
+                print("Opção inválida.")
+                continue
+            
             if musica:
                 print("\nMúsica Encontrada:")
                 print(f"ID: {musica.id} | {musica.titulo} - {musica.artista} | Gênero: {musica.genero} | BPM: {musica.bpm}")
